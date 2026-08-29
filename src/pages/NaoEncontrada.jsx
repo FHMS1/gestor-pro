@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom"
+import styles from "./NaoEncontrada.module.css"
 
 const NaoEncontrada = () => {
   return (
-    <div style={{ textAlign: "center", marginTop: "40px" }}>
+    <div className={styles.pagina}>
       <h2>Essa página não existe</h2>
-      <p>Mas o painel está logo ali:</p>
-      <Link to="/">← voltar pro início</Link>
+      <p>Mas o painel está logo ali.</p>
+      <Link to="/" className={styles.link}>← voltar pro início</Link>
     </div>
   )
 }

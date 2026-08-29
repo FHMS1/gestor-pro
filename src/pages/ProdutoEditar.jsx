@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { useParams, useNavigate } from "react-router-dom"
+import { useParams, useNavigate, Link } from "react-router-dom"
 import api from "../api.js"
 import styles from "./ProdutoNovo.module.css"   // mesmo visual do cadastro — reuso!
 
@@ -53,6 +53,7 @@ const ProdutoEditar = () => {
         <input value={categoria} onChange={(e) => setCategoria(e.target.value)} />
       </label>
       <button onClick={salvar}>Salvar alterações</button>
+      <Link to="/produtos" className={styles.link}>Cancelar</Link>
     </div>
   )
 }

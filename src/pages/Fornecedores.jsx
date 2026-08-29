@@ -46,6 +46,11 @@ const Fornecedores = () => {
             </tr>
           </thead>
           <tbody>
+            {fornecedores.length === 0 && (
+              <tr>
+                <td colSpan={5} className={styles.vazio}>Nenhum fornecedor cadastrado ainda.</td>
+              </tr>
+            )}
             {fornecedores.map((f) => (
               <tr key={f.id}>
                 <td>{f.nome}</td>

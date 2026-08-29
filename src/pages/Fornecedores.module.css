@@ -24,10 +24,20 @@
   font-weight: 600;
   font-size: 14px;
   border-radius: 8px;
+  transition: background-color 150ms;
 }
 
 .botaoNovo:hover {
   background: #1d4ed8;
+}
+
+.botaoNovo:active {
+  background: #1e40af;
+}
+
+.botaoNovo:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
 }
 
 .cartao {
@@ -73,6 +83,14 @@
 
 .direita {
   text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.vazio {
+  padding: 32px 16px;
+  text-align: center;
+  color: #64748b;
+  font-size: 14px;
 }
 
 .btnEditar,
@@ -86,6 +104,7 @@
   border: 1px solid #e2e8f0;
   background: #fff;
   cursor: pointer;
+  transition: background-color 150ms, border-color 150ms;
 }
 
 .btnEditar {
@@ -97,6 +116,10 @@
   border-color: #cbd5e1;
 }
 
+.btnEditar:active {
+  background: #eef1f5;
+}
+
 .btnExcluir {
   color: #dc2626;
 }
@@ -104,4 +127,14 @@
 .btnExcluir:hover {
   background: #fef2f2;
   border-color: #fca5a5;
+}
+
+.btnExcluir:active {
+  background: #fee2e2;
+}
+
+.btnEditar:focus-visible,
+.btnExcluir:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 1px;
 }

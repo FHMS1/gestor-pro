@@ -36,12 +36,20 @@
   font-weight: 400;
   color: #0f172a;
   font-family: inherit;
+  transition: border-color 150ms, box-shadow 150ms;
 }
 
 .campo input:focus {
   outline: none;
   border-color: #2563eb;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.erro {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #dc2626;
 }
 
 .pagina button {
@@ -54,8 +62,25 @@
   border: 0;
   border-radius: 8px;
   cursor: pointer;
+  transition: background-color 150ms;
 }
 
 .pagina button:hover {
   background: #1d4ed8;
+}
+
+.pagina button:active {
+  background: #1e40af;
+}
+
+.pagina button:focus-visible,
+.link:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+.link {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
 }

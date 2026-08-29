@@ -47,6 +47,11 @@ const Clientes = () => {
             </tr>
           </thead>
           <tbody>
+            {clientes.length === 0 && (
+              <tr>
+                <td colSpan={5} className={styles.vazio}>Nenhum cliente cadastrado ainda.</td>
+              </tr>
+            )}
             {clientes.map((c) => (
               <tr key={c.id}>
                 <td>{c.nome}</td>

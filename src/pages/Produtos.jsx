@@ -50,6 +50,11 @@ const Produtos = () => {
             </tr>
           </thead>
           <tbody>
+            {produtos.length === 0 && (
+              <tr>
+                <td colSpan={5} className={styles.vazio}>Nenhum produto cadastrado ainda.</td>
+              </tr>
+            )}
             {produtos.map((p) => (
               <tr key={p.id}>
                 <td>{p.nome}</td>

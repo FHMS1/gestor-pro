@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import api from "../api.js"
 import styles from "./ProdutoNovo.module.css"
 
@@ -8,11 +8,12 @@ const ProdutoNovo = () => {
   const [preco, setPreco] = useState("")
   const [estoque, setEstoque] = useState("")
   const [categoria, setCategoria] = useState("")
+  const [erro, setErro] = useState(false)
   const navigate = useNavigate()
 
   const salvar = () => {
     if (nome === "") {
-      alert("O nome é obrigatório!")
+      setErro(true)
       return   // o porteiro do Cap 8: para aqui, nem chama a API
     }
     api.post("/produtos", {
@@ -43,7 +44,9 @@ const ProdutoNovo = () => {
         Categoria
         <input value={categoria} onChange={(e) => setCategoria(e.target.value)} />
       </label>
+      {erro && <p className={styles.erro}>O nome é obrigatório.</p>}
       <button onClick={salvar}>Salvar</button>
+      <Link to="/produtos" className={styles.link}>Cancelar</Link>
     </div>
   )
 }

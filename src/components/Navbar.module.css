@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 240px;
-  height: 100vh;
+  height: 100dvh;
   background: #0f172a;
   display: flex;
   flex-direction: column;
@@ -32,11 +32,23 @@
   font-weight: 500;
   font-size: 0.9rem;
   border-left: 3px solid transparent;
+  transition: color 150ms, background-color 150ms;
 }
 
 .link:hover {
   color: #fff;
   background: rgba(255, 255, 255, 0.04);
+}
+
+.link:active {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.link:focus-visible,
+.botaoSair:focus-visible,
+.logo:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: -2px;
 }
 
 .linkAtivo {
@@ -75,8 +87,13 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 6px;
   cursor: pointer;
+  transition: background-color 150ms, border-color 150ms;
 }
 
 .botaoSair:hover {
   background: rgba(255, 255, 255, 0.08);
+}
+
+.botaoSair:active {
+  background: rgba(255, 255, 255, 0.16);
 }

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { useParams, useNavigate } from "react-router-dom"
+import { useParams, useNavigate, Link } from "react-router-dom"
 import api from "../api.js"
 import styles from "./ClienteNovo.module.css"   // mesmo visual do cadastro — reuso!
 
@@ -53,6 +53,7 @@ const ClienteEditar = () => {
         <input value={cidade} onChange={(e) => setCidade(e.target.value)} />
       </label>
       <button onClick={salvar}>Salvar alterações</button>
+      <Link to="/clientes" className={styles.link}>Cancelar</Link>
     </div>
   )
 }

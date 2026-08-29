@@ -1,12 +1,12 @@
 .layout {
-  min-height: 100vh;
+  min-height: 100dvh;
   background: #f6f7f9;
 }
 
 /* 240px = mesma largura da sidebar fixa, pra o conteúdo não ficar embaixo dela */
 .conteudo {
   margin-left: 240px;
-  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .container {
@@ -17,7 +17,7 @@
 
 /* sem usuario logado: sem sidebar, só o card de login/registro centralizado */
 .semSessao {
-  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
