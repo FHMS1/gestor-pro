@@ -1,0 +1,82 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100vh;
+  background: #0f172a;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 0;
+}
+
+.logo {
+  display: block;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 0 24px 20px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+}
+
+/* os Links viram <a> no HTML final — por isso a barrinha usa border-left direto no link */
+.link {
+  padding: 12px 24px;
+  color: #94a3b8;
+  font-weight: 500;
+  font-size: 0.9rem;
+  border-left: 3px solid transparent;
+}
+
+.link:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.linkAtivo {
+  color: #fff;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.08);
+  border-left: 3px solid #2563eb;
+}
+
+/* margin-top: auto empurra o crachá pro final da sidebar */
+.usuario {
+  margin-top: auto;
+  padding: 16px 24px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.saudacao {
+  color: #cbd5e1;
+  font-size: 0.85rem;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.botaoSair {
+  align-self: flex-start;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.botaoSair:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
