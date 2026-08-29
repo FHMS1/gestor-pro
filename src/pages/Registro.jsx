@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
-import axios from "axios"
+import api from "../api.js"
 import styles from "./Login.module.css"
 
 const Registro = () => {
@@ -10,7 +10,7 @@ const Registro = () => {
   const navigate = useNavigate()
 
   const registrar = () => {
-    axios.post("http://localhost:3000/usuarios", {
+    api.post("/usuarios", {
       nome: nome,
       email: email,
       senha: senha

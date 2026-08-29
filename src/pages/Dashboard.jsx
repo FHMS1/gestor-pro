@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
-import axios from "axios"
+import api from "../api.js"
 import styles from "./Dashboard.module.css"
 
 const Dashboard = () => {
@@ -9,9 +9,9 @@ const Dashboard = () => {
   const [produtos, setProdutos] = useState([])
 
   useEffect(() => {
-    axios.get("http://localhost:3000/clientes").then((res) => setClientes(res.data))
-    axios.get("http://localhost:3000/fornecedores").then((res) => setFornecedores(res.data))
-    axios.get("http://localhost:3000/produtos").then((res) => setProdutos(res.data))
+    api.get("/clientes").then((res) => setClientes(res.data))
+    api.get("/fornecedores").then((res) => setFornecedores(res.data))
+    api.get("/produtos").then((res) => setProdutos(res.data))
   }, [])
 
   const estoqueBaixo = produtos.filter((p) => p.estoque < 5).length

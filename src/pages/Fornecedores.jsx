@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import axios from "axios"
+import api from "../api.js"
 import styles from "./Fornecedores.module.css"
 import { Link } from "react-router-dom"
 
@@ -10,7 +10,7 @@ const Fornecedores = () => {
 
   const excluir = (id) => {
     if (window.confirm("Tem certeza que quer excluir este fornecedor?")) {
-      axios.delete("http://localhost:3000/fornecedores/" + id)
+      api.delete("/fornecedores/" + id)
         .then(() => {
           setFornecedores(fornecedores.filter((f) => f.id !== id))
         })
@@ -18,7 +18,7 @@ const Fornecedores = () => {
   }
 
   useEffect(() => {
-    axios.get("http://localhost:3000/fornecedores")
+    api.get("/fornecedores")
       .then((res) => {
         setFornecedores(res.data)
         setCarregando(false)

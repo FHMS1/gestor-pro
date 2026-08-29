@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
-import axios from "axios"
+import api from "../api.js"
 import styles from "./Login.module.css"
 
 const Login = ({ aoEntrar }) => {
@@ -10,7 +10,7 @@ const Login = ({ aoEntrar }) => {
   const navigate = useNavigate()
 
   const entrar = () => {
-    axios.get("http://localhost:3000/usuarios?email=" + email + "&senha=" + senha)
+    api.get("/usuarios?email=" + email + "&senha=" + senha)
       .then((res) => {
         if (res.data.length === 1) {
           const usuario = res.data[0]

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import axios from "axios"
+import api from "../api.js"
 import styles from "./Produtos.module.css"
 import { Link } from "react-router-dom"
 
@@ -10,7 +10,7 @@ const Produtos = () => {
 
   const excluir = (id) => {
     if (window.confirm("Tem certeza que quer excluir este produto?")) {
-      axios.delete("http://localhost:3000/produtos/" + id)
+      api.delete("/produtos/" + id)
         .then(() => {
           setProdutos(produtos.filter((p) => p.id !== id))
         })
@@ -18,7 +18,7 @@ const Produtos = () => {
   }
 
   useEffect(() => {
-    axios.get("http://localhost:3000/produtos")
+    api.get("/produtos")
       .then((res) => {
         setProdutos(res.data)
         setCarregando(false)

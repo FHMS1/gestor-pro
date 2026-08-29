@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import axios from "axios"
+import api from "../api.js"
 import styles from "./Clientes.module.css"
 import { Link } from "react-router-dom"
 
@@ -10,7 +10,7 @@ const Clientes = () => {
 
   const excluir = (id) => {
     if (window.confirm("Tem certeza que quer excluir este cliente?")) {
-      axios.delete("http://localhost:3000/clientes/" + id)
+      api.delete("/clientes/" + id)
         .then(() => {
           // o servidor já rasgou a ficha — agora avisamos a TELA:
           setClientes(clientes.filter((c) => c.id !== id))
@@ -19,7 +19,7 @@ const Clientes = () => {
   }
 
   useEffect(() => {
-    axios.get("http://localhost:3000/clientes")
+    api.get("/clientes")
       .then((res) => {
         setClientes(res.data)
         setCarregando(false)

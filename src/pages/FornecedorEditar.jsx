@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
-import axios from "axios"
+import api from "../api.js"
 import styles from "./FornecedorNovo.module.css"   // mesmo visual do cadastro — reuso!
 
 const FornecedorEditar = () => {
@@ -13,7 +13,7 @@ const FornecedorEditar = () => {
 
   useEffect(() => {
     // busca a ficha atual e PRÉ-ENCHE o formulário:
-    axios.get("http://localhost:3000/fornecedores/" + id)
+    api.get("/fornecedores/" + id)
       .then((res) => {
         setNome(res.data.nome)
         setCnpj(res.data.cnpj)
@@ -23,7 +23,7 @@ const FornecedorEditar = () => {
   }, [id])
 
   const salvar = () => {
-    axios.put("http://localhost:3000/fornecedores/" + id, {
+    api.put("/fornecedores/" + id, {
       nome: nome,
       cnpj: cnpj,
       categoria: categoria,

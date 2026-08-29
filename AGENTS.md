@@ -17,7 +17,8 @@ Sistema de gestão feito por um aluno do curso Fullstack (programa AI).
 - Formulários controlados: um useState por campo, value + onChange
   (nunca useRef, nunca biblioteca de formulário)
 - Requisições com .then()/.catch() (não use async/await)
-- A API é o json-server em http://localhost:3000
+- toda chamada HTTP usa o api de src/api.js (axios com baseURL
+  configurável) — nunca axios direto, nunca URL completa
 - Textos da interface em português do Brasil
 - O módulo Clientes (src/pages/Cliente*.jsx) é O PADRÃO da casa:
   toda tela nova segue a estrutura dele

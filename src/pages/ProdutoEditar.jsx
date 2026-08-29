@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
-import axios from "axios"
+import api from "../api.js"
 import styles from "./ProdutoNovo.module.css"   // mesmo visual do cadastro — reuso!
 
 const ProdutoEditar = () => {
@@ -13,7 +13,7 @@ const ProdutoEditar = () => {
 
   useEffect(() => {
     // busca a ficha atual e PRÉ-ENCHE o formulário:
-    axios.get("http://localhost:3000/produtos/" + id)
+    api.get("/produtos/" + id)
       .then((res) => {
         setNome(res.data.nome)
         setPreco(res.data.preco)
@@ -23,7 +23,7 @@ const ProdutoEditar = () => {
   }, [id])
 
   const salvar = () => {
-    axios.put("http://localhost:3000/produtos/" + id, {
+    api.put("/produtos/" + id, {
       nome: nome,
       preco: Number(preco),      // "320" (texto do input) vira 320 (número)
       estoque: Number(estoque),

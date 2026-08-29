@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
-import axios from "axios"
+import api from "../api.js"
 import styles from "./ClienteNovo.module.css"   // mesmo visual do cadastro — reuso!
 
 const ClienteEditar = () => {
@@ -13,7 +13,7 @@ const ClienteEditar = () => {
 
   useEffect(() => {
     // busca a ficha atual e PRÉ-ENCHE o formulário:
-    axios.get("http://localhost:3000/clientes/" + id)
+    api.get("/clientes/" + id)
       .then((res) => {
         setNome(res.data.nome)
         setEmail(res.data.email)
@@ -23,7 +23,7 @@ const ClienteEditar = () => {
   }, [id])
 
   const salvar = () => {
-    axios.put("http://localhost:3000/clientes/" + id, {
+    api.put("/clientes/" + id, {
       nome: nome,
       email: email,
       telefone: telefone,

@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import axios from "axios"
+import api from "../api.js"
 import styles from "./FornecedorNovo.module.css"
 
 const FornecedorNovo = () => {
@@ -15,7 +15,7 @@ const FornecedorNovo = () => {
       alert("O nome é obrigatório!")
       return   // o porteiro do Cap 8: para aqui, nem chama a API
     }
-    axios.post("http://localhost:3000/fornecedores", {
+    api.post("/fornecedores", {
       nome: nome,
       cnpj: cnpj,
       categoria: categoria,
