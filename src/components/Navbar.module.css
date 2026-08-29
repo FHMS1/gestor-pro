@@ -27,12 +27,32 @@
 
 /* os Links viram <a> no HTML final — por isso a barrinha usa border-left direto no link */
 .link {
+  display: flex;
+  align-items: center;
   padding: 12px 24px;
   color: #94a3b8;
   font-weight: 500;
   font-size: 0.9rem;
   border-left: 3px solid transparent;
   transition: color 150ms, background-color 150ms;
+}
+
+/* mesmo âmbar do selo "estoque baixo" — o sinal de atenção do sistema,
+   visível na sidebar mesmo fora da tela de Produtos */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  margin-left: auto;
+  background: #fef3c7;
+  color: #92400e;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 6px;
+  font-variant-numeric: tabular-nums;
 }
 
 .link:hover {

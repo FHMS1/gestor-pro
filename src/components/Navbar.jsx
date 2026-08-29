@@ -1,15 +1,26 @@
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
+import api from "../api.js"
 import styles from "./Navbar.module.css"
 
 const Navbar = ({ usuario, aoSair }) => {
   const [paginaAtual, setPaginaAtual] = useState(window.location.pathname)
+  const [estoqueBaixo, setEstoqueBaixo] = useState(0)
 
   useEffect(() => {
     // cobre a navegação pelos botões voltar/avançar do navegador
     const aoNavegar = () => setPaginaAtual(window.location.pathname)
     window.addEventListener("popstate", aoNavegar)
     return () => window.removeEventListener("popstate", aoNavegar)
+  }, [])
+
+  useEffect(() => {
+    // avisa direto na sidebar quando algum produto está acabando,
+    // sem precisar estar na tela de Produtos pra ver
+    api.get("/produtos")
+      .then((res) => {
+        setEstoqueBaixo(res.data.filter((p) => p.estoque < 5).length)
+      })
   }, [])
 
   const linkClasse = (caminho) =>
@@ -21,7 +32,10 @@ const Navbar = ({ usuario, aoSair }) => {
       <div className={styles.links}>
         <Link to="/clientes" className={linkClasse("/clientes")} onClick={() => setPaginaAtual("/clientes")}>Clientes</Link>
         <Link to="/fornecedores" className={linkClasse("/fornecedores")} onClick={() => setPaginaAtual("/fornecedores")}>Fornecedores</Link>
-        <Link to="/produtos" className={linkClasse("/produtos")} onClick={() => setPaginaAtual("/produtos")}>Produtos</Link>
+        <Link to="/produtos" className={linkClasse("/produtos")} onClick={() => setPaginaAtual("/produtos")}>
+          Produtos
+          {estoqueBaixo > 0 && <span className={styles.badge}>{estoqueBaixo}</span>}
+        </Link>
       </div>
       <div className={styles.usuario}>
         <span className={styles.saudacao}>Olá, {usuario.nome}</span>
